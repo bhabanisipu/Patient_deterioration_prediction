@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Patient Deterioration Early-Warning System</title>
+
+    <link
+        rel="stylesheet"
+        href="../static/css/style.css"
+    >
+</head>
+
+<body>
+    <div class="container">
+
+        <header>
+            <h1>Patient Deterioration Early-Warning System</h1>
+            <p>
+                LSTM-based prediction using six consecutive hourly
+                patient observations
+            </p>
+        </header>
+
+        <main class="card">
+            <h2>Predict Patient Deterioration</h2>
+
+            <p class="description">
+                Upload a CSV file containing six consecutive hourly
+                observations for a single patient.
+            </p>
+
+            <form method="POST" enctype="multipart/form-data">
+                <label for="file">Select Patient CSV File</label>
+
+                <input
+                    type="file"
+                    id="file"
+                    name="file"
+                    accept=".csv"
+                    required
+                >
+
+                <button type="submit">Predict Deterioration</button>
+            </form>
+
+            {% if error %}
+                <div class="result error">
+                    <h3>Prediction Error</h3>
+                    <p>{{ error }}</p>
+                </div>
+            {% endif %}
+
+            {% if result is not none %}
+                <div class="result">
+                    <h3>Prediction Result</h3>
+
+                    {% if result is mapping %}
+                        {% for key, value in result.items() %}
+                            <p>
+                                <strong>
+                                    {{ key | replace('_', ' ') | title }}:
+                                </strong>
+                                {{ value }}
+                            </p>
+                        {% endfor %}
+                    {% else %}
+                        <p>{{ result }}</p>
+                    {% endif %}
+                </div>
+            {% endif %}
+
+            <div class="notice">
+                <strong>Important:</strong>
+                This is an educational machine-learning prototype.
+                Predictions are not a substitute for clinical assessment
+                or professional medical decisions.
+            </div>
+        </main>
+
+        <footer>
+            <p>Patient Deterioration Early-Warning System | LSTM</p>
+        </footer>
+
+    </div>
+</body>
+</html>

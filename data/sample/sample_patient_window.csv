@@ -1,0 +1,7 @@
+patient_id,hour_from_admission,heart_rate,respiratory_rate,spo2_pct,temperature_c,systolic_bp,diastolic_bp,oxygen_flow,wbc_count,lactate,creatinine,crp_level,hemoglobin,age,comorbidity_index
+1001,0,82,17,98,36.8,124,78,0,8.2,1.1,0.9,8,13.8,58,2
+1001,1,86,18,97,36.9,122,77,0,8.5,1.2,0.9,10,13.7,58,2
+1001,2,91,19,97,37.0,120,76,0,8.8,1.3,0.9,12,13.7,58,2
+1001,3,96,21,96,37.2,117,74,1,9.1,1.5,1.0,15,13.6,58,2
+1001,4,101,22,95,37.4,114,72,1,9.5,1.6,1.0,18,13.6,58,2
+1001,5,104,23,95,37.5,112,70,2,9.8,1.8,1.1,21,13.5,58,2
